@@ -1,11 +1,39 @@
-.ql-container {
+body {
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+.title {
+    font-size: 30px;
+}
+
+.description {
     font-size: 20px;
-    width: 80vh;
-    background-color: white;
-    size: 100px;
+    color: #787878;
 }
 
 .container {
-    display: grid
+    display: flex;
+}
+
+.ql-container {
+    padding: 30px;
+    font-size: 20px;
+    size: 100px;
+    display: flex;
+    width: 750px;
+    background-color: aqua;
+    align-self: flex-start;
+}
+
+
+
+.ql-editor {
+    width: 60%;
+}
+
+.sidebar {
+    display: flex;
+    background-color: red;
+    float: right;
+    justify-content: flex-end;
 }

@@ -11,6 +11,7 @@ djangorestframework = "==3.8.2"
 django-heroku = "*"
 gunicorn = "==19.9.0"
 heroku = "*"
+pickle = "*"
 
 [requires]
 python_version = "3.6"
