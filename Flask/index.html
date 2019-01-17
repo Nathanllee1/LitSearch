@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div style="font-size:30px;">Litsearch <span style="font-size:14px""></span>Search through writing for quotes for analytical writing</div>
+
+
+        <div class="container">
+            <div class="col col-lg-2">
+                <div id="editor">
+                    <p>Add the text to search through here</p>
+                </div>
+            </div>
+            <div class="col-md-auto">
+                <div class="sidebar">
+                    <h1>Heyyyy</h1>
+                </div>
+            </div>
+
+        </div>
+
+        <script src='https://cdn.quilljs.com/1.3.6/quill.js'></script>
+        <script>
+            var Delta = Quill.import('delta');
+            var quill = new Quill('#editor', {
+                theme: 'bubble'
+            });
+
+            var change = new Delta();
+            quill.on('text-change', function(delta) {
+                change = change.compose(delta);
+            });
+            setInterval(function() {
+              if (change.length() > 0) {
+                console.log('Sent for ml', quill.getText());
+                $.post('/api/', {'text' : quill.getText()});
+                ///$.getJSON('/api/', function(data){
+                   /// console.log(data)
+                ///})
+              }
+            }, 1000);
+        </script>
+    </body>
+</html>

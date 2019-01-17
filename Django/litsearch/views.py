@@ -23,6 +23,6 @@ def index(request):
 def api(request):
     # serializer_class = ApiSerializer
     if request.method == 'POST':
-        returned = classify(request.POST['text']) # request.POST['theme']
+        returned = classify(request.POST['text']) #, request.POST['theme']
 
         return render(request, 'index.html', {'highlight': returned})
