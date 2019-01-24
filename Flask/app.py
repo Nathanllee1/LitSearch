@@ -7,7 +7,7 @@ import pickle
 from nltk import sent_tokenize
 
 #model stuff
-clf = pickle.load(open('model0.5998337835030126', 'rb'))
+clf = pickle.load(open('clf', 'rb'))
 
 
 app = Flask(__name__)
