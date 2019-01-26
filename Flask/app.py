@@ -7,7 +7,7 @@ import pickle
 from nltk import sent_tokenize
 
 #model stuff
-clf = pickle.load(open('clf', 'rb'))
+#clf = pickle.load(open('clf', 'rb'))
 
 
 app = Flask(__name__)
@@ -18,6 +18,7 @@ def my_runs():
 
 @app.route('/api')
 def predict():
+    '''
     data = request.get_json(force=True)
     rawtext = data['text']
     sentences = sent_tokenize(rawtext)
@@ -29,5 +30,7 @@ def predict():
         else:
             pass
     return jsonify(returned)
+    '''
+    return 'API Works'
 if __name__ == "__main__":
     app.run(port = 5001)

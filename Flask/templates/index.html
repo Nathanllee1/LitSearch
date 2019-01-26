@@ -1,0 +1,118 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+        <link rel="stylesheet" href='static/styles.css'>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+        <div class='header'>
+          <h1 class='title'>LitSearch</h1>
+          <h2 class='description'>Search literature for analytical evidence with machine learning</h2>
+        </div>
+        <div class="main-content">
+            <div id="editor">
+                <p>Add the text to search through here</p>
+            </div>
+
+            <div class="sidebar">
+                <div id='filtered-list'>
+                    <input class="search" placeholder="Search for themes"/>
+                    <ul id='themes'></ul>
+                </div>
+
+                <div class='card'>
+                  <div class='card-body'>
+                    <h5 class="card-title">Family</h5>
+                    <p class="card-text" style='background: #f0ffff;'> Tellus mauris a diam maecenas sed. Habitant morbi tristique senectus et netus et malesuada fames ac. <p>
+                    <p class="card-text" style='background: #e6e6fa;'> Tellus mauris a diam maecenas sed. Habitant morbi tristique senectus et netus et malesuada fames ac. <p>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <script src='https://cdn.quilljs.com/1.3.6/quill.js'></script>
+        <script>
+          ///quill stuff
+            var Delta = Quill.import('delta');
+            var quill = new Quill('#editor', {
+                theme: 'bubble'
+
+            });
+
+            var change = new Delta();
+            quill.on('text-change', function(delta) {
+                change = change.compose(delta);
+            });
+            setInterval(function() {
+              if (change.length() > 0) {
+                console.log('Sent for ml', quill.getText());
+                $.post('/api/', {'text' : quill.getText()});
+                ///$.getJSON('/api/', function(data){
+                   /// console.log(data)
+                ///})
+              }
+            }, 1000);
+
+          ///list stuff
+          var cannoicallist = [
+            {theme: 'family'},
+            {theme: 'identity'},
+            {theme: 'love'},
+            {theme: 'women'},
+            {theme: 'power'},
+            {theme: 'language'},
+            {theme: 'religion'},
+            {theme: 'death'},
+            {theme: 'justice'},
+            {theme: 'class'},
+            {theme: 'storytelling'},
+            {theme: 'nature'},
+            {theme: 'racism'},
+            {theme: 'education'},
+            {theme: 'survival'},
+            {theme: 'freedom'},
+            {theme: 'memory'},
+            {theme: 'coming of age'},
+            {theme: 'morality'},
+            {theme: 'war'},
+            {theme: 'fate'},
+            {theme: 'gender roles'},
+            {theme: 'growing up'},
+            {theme: 'time'},
+            {theme: 'isolation'},
+            {theme: 'guilt'},
+            {theme: 'christianity'},
+            {theme: 'friendship'},
+            {theme: 'marriage'},
+            {theme: 'community'},
+            {theme: 'tradition'},
+            {theme: 'home'},
+            {theme: 'appearances'},
+            {theme: 'heroism'},
+            {theme: 'fate and free will'},
+            {theme: 'america'},
+            {theme: 'work'},
+            {theme: 'redemption'},
+            {theme: 'perspective'},
+            {theme: 'resistance'},
+            {theme: 'corruption'},
+            {theme: 'duality'},
+            {theme: 'secrecy'},
+            {theme: 'art'},
+         ]
+
+         var options = {
+           valueNames: ['theme']
+         }
+         var listobject = new List('filtered-list', options)
+         listobject.add(cannoicallist)
+        </script>
+    </body>
+</html>
