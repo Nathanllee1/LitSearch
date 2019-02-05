@@ -8,7 +8,11 @@
         <link rel="stylesheet" href='static/styles.css'>
         <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        <script>
+          window.onbeforeunload = function() {
+             return "Do you want to leave? Changes will not be saved";
+          };
+        </script>
     </head>
 
     <body>
@@ -23,8 +27,55 @@
 
             <div class="sidebar">
                 <div id='filtered-list'>
-                    <input class="search" placeholder="Search for themes"/>
-                    <ul id='themes'></ul>
+                  <input id='searchbox' class="search" placeholder="Search for themes"/>
+                    <div class='listdiv'>
+                      <ul id='listobjects'>
+                        <li><h3 class='family'>family</h3></li>
+                        <li><h3 class='identity'>identity</h3></li>
+                        <li><h3 class='love'>love</h3></li>
+                        <li><h3 class='women'>women</h3></li>
+                        <li><h3 class='power'>power</h3></li>
+                        <li><h3 class='language'>language</h3></li>
+                        <li><h3 class='religion'>religion</h3></li>
+                        <li><h3 class='death'>death</h3></li>
+                        <li><h3 class='justice'>justice</h3></li>
+                        <li><h3 class='class'>class</h3></li>
+                        <li><h3 class='storytelling'>storytelling</h3></li>
+                        <li><h3 class='nature'>nature</h3></li>
+                        <li><h3 class='racism'>racism</h3></li>
+                        <li><h3 class='education'>education</h3></li>
+                        <li><h3 class='survival'>survival</h3></li>
+                        <li><h3 class='freedom'>freedom</h3></li>
+                        <li><h3 class='memory'>memory</h3></li>
+                        <li><h3 class='coming of age'>coming of age</h3></li>
+                        <li><h3 class='morality'>morality</h3></li>
+                        <li><h3 class='war'>war</h3></li>
+                        <li><h3 class='fate'>fate</h3></li>
+                        <li><h3 class='gender roles'>gender roles</h3></li>
+                        <li><h3 class='growing up'>growing up</h3></li>
+                        <li><h3 class='time'>time</h3></li>
+                        <li><h3 class='isolation'>isolation</h3></li>
+                        <li><h3 class='guilt'>guilt</h3></li>
+                        <li><h3 class='christianity'>christianity</h3></li>
+                        <li><h3 class='friendship'>friendship</h3></li>
+                        <li><h3 class='marriage'>marriage</h3></li>
+                        <li><h3 class='community'>community</h3></li>
+                        <li><h3 class='tradition'>tradition</h3></li>
+                        <li><h3 class='home'>home</h3></li>
+                        <li><h3 class='appearances'>appearances</h3></li>
+                        <li><h3 class='heroism'>heroism</h3></li>
+                        <li><h3 class='fate and free will'>fate and free will</h3></li>
+                        <li><h3 class='america'>america</h3></li>
+                        <li><h3 class='work'>work</h3></li>
+                        <li><h3 class='redemption'>redemption</h3></li>
+                        <li><h3 class='perspective'>perspective</h3></li>
+                        <li><h3 class='resistance'>resistance</h3></li>
+                        <li><h3 class='corruption'>corruption</h3></li>
+                        <li><h3 class='duality'>duality</h3></li>
+                        <li><h3 class='secrecy'>secrecy</h3></li>
+                        <li><h3 class='art'>art</h3></li>
+                      </ul>
+                    </div>
                 </div>
 
                 <div class='card'>
@@ -61,58 +112,25 @@
             }, 1000);
 
           ///list stuff
-          var cannoicallist = [
-            {theme: 'family'},
-            {theme: 'identity'},
-            {theme: 'love'},
-            {theme: 'women'},
-            {theme: 'power'},
-            {theme: 'language'},
-            {theme: 'religion'},
-            {theme: 'death'},
-            {theme: 'justice'},
-            {theme: 'class'},
-            {theme: 'storytelling'},
-            {theme: 'nature'},
-            {theme: 'racism'},
-            {theme: 'education'},
-            {theme: 'survival'},
-            {theme: 'freedom'},
-            {theme: 'memory'},
-            {theme: 'coming of age'},
-            {theme: 'morality'},
-            {theme: 'war'},
-            {theme: 'fate'},
-            {theme: 'gender roles'},
-            {theme: 'growing up'},
-            {theme: 'time'},
-            {theme: 'isolation'},
-            {theme: 'guilt'},
-            {theme: 'christianity'},
-            {theme: 'friendship'},
-            {theme: 'marriage'},
-            {theme: 'community'},
-            {theme: 'tradition'},
-            {theme: 'home'},
-            {theme: 'appearances'},
-            {theme: 'heroism'},
-            {theme: 'fate and free will'},
-            {theme: 'america'},
-            {theme: 'work'},
-            {theme: 'redemption'},
-            {theme: 'perspective'},
-            {theme: 'resistance'},
-            {theme: 'corruption'},
-            {theme: 'duality'},
-            {theme: 'secrecy'},
-            {theme: 'art'},
-         ]
+          function myFunction() {
+            // Declare variables
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('searchbox');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("listobjects");
+            li = ul.getElementsByTagName('li');
 
-         var options = {
-           valueNames: ['theme']
-         }
-         var listobject = new List('filtered-list', options)
-         listobject.add(cannoicallist)
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+              a = li[i].getElementsByTagName("a")[0];
+              txtValue = a.textContent || a.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+              } else {
+                li[i].style.display = "none";
+              }
+            }
+          }
         </script>
     </body>
 </html>

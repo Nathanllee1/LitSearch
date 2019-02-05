@@ -28,9 +28,11 @@ body {
     height: calc(100vh - 100px);
 
 }
+
 #editor {
   margin-left: 20px;
 }
+
 .ql-container {
     padding: 30px;
     font-size: 20px;
@@ -60,7 +62,29 @@ body {
     border-radius: 25px;
 }
 
+#listobjects {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 
+#listobjects li  {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+  font-size: 15px;
+}
+
+.listdiv {
+  height: 200px;
+
+}
 .search {
     border-radius: 25px;
     padding: 7px 14px;

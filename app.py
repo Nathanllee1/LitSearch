@@ -21,14 +21,16 @@ def predict():
     '''
     data = request.get_json(force=True)
     rawtext = data['text']
+    theme = data['theme']
     sentences = sent_tokenize(rawtext)
     returned = []
     for sentence in sentences:
-        prediction = clf.predict(sentence)
+        prediction = clf.predict(sentence + theme)
         if prediction == true:
-            returned.append(prediction)
+            returned.append(prediction - theme)
         else:
             pass
+
     return jsonify(returned)
     '''
     return 'API Works'

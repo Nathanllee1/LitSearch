@@ -9,8 +9,8 @@ themes = ['family', 'identity', 'love', 'women', 'power', 'language', 'religion'
 
 jsonlist = []
 for theme in themes:
-    object = "{theme: '" + theme + "\'}, "
-    #object = "<li>\n    <h3 class='theme'>" + theme + "</h3>\n</li>"
+    #object = "{theme: '" + theme + "\'}, "
+    object = "<li><h3 class='" + theme + "'>" + theme + "</h3></li>"
     print(object)
     jsonlist.append(object)
 
