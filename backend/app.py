@@ -2,9 +2,9 @@ from flask import Flask
 from flask import render_template, request, jsonify
 import csv
 import json
-from sklearn.datasets import make_classification
+#from sklearn.datasets import make_classification
 import pickle
-from nltk import sent_tokenize
+#from nltk import sent_tokenize
 
 #model stuff
 #clf = pickle.load(open('clf', 'rb'))
