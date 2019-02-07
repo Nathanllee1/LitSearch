@@ -8,8 +8,6 @@
         <link rel="stylesheet" href='static/styles.css'>
         <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-        <!-- Ask do they want to leave -->
         <script>
           window.onbeforeunload = function() {
              return "Do you want to leave? Changes will not be saved";
@@ -22,14 +20,14 @@
           <h1 class='title'>LitSearch</h1>
           <h2 class='description'>Search literature for analytical evidence with machine learning</h2>
         </div>
-
         <div class="main-content">
             <div id="editor">
                 <p>Add the text to search through here</p>
             </div>
+
             <div class="sidebar">
                 <div id='filtered-list'>
-                  <input id='searchbox' class="search" placeholder="Search for themes"/>
+
                 </div>
 
                 <div class='card'>
@@ -66,13 +64,30 @@
             }, 1000);
 
           ///list stuff
+          function myFunction() {
+            // Declare variables
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('searchbox');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("listobjects");
+            li = ul.getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+              a = li[i].getElementsByTagName("a")[0];
+              txtValue = a.textContent || a.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+              } else {
+                li[i].style.display = "none";
+              }
+            }
           }
         </script>
-
         <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
         <!-- Load our React component. -->
-        <script src="index.js"></script>
+        <script src="app.js"></script>
     </body>
 </html>
