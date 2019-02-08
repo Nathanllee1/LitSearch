@@ -1,0 +1,47 @@
+Some comments for train.ipynb: 
+
+For these lines:
+df['is_train'] = np.random.uniform(0, 1, len(df)) <= .80
+train, test = df[df['is_train']==True], df[df['is_train']==False]
+
+look into sklearn.model_selection.train_test_split 
+(https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)
+it basically does this for you. In general, your first instinct should be to find pre-written modules
+that will do what you're trying to do, instead of writing it yourself.
+
+For this line:
+y = booleanvectorizer.fit_transform(boolean)
+
+It's crashing because you've never defined "boolean".
+Also, you don't want to tfidf transform the y values. You should instead transform it to be 0 or 1 instead.
+Something like this would do it:
+y = test['Boolean'].apply(lambda x: int(x == 'yes')) 
+
+So overall:
+x = train['Cleaned']
+datavectorizer = TfidfVectorizer(lowercase=True, strip_accents='ascii')
+x = datavectorizer.fit_transform(x) # datavectorizer is now a fitted tfidf transformer
+x = x.toarray()
+y = train['Boolean'].apply(lambda x: int(x == 'yes')) 
+
+clf = RandomForestClassifier()
+clf.fit(x, y) #clf is now a fitted model
+
+x_test = test['Cleaned']
+x_test = datavectorizer.transform(x_test) # you just transform, 
+# because you don't want to fit again. You're using the previous fit
+# to transform this new set of x values
+x_test = x_test.toarray()
+
+y_predict = clf.predict(x_test)
+y_test = test['Boolean'].apply(lambda x: int(x == 'yes')) 
+
+from sklearn.metrics import confusion_matrix, classification_report
+print(confusion_matrix(y_test, y_predict))
+
+Doing all that at least gets everything to run, but the results are poor - worse than random guessing.
+So here's where you can tweak things and make improvements. 
+
+I would also look at your "Boolean" column, I'm not sure where your "theme" is - 
+is it already in the "Cleaned" column? How do I know
+which one of the words is the "theme"?
