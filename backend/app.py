@@ -1,24 +1,24 @@
 from flask import Flask
 from flask import render_template, request, jsonify
+
+#from flask_restplusu import Api
+
 import csv
 import json
-#from sklearn.datasets import make_classification
+from sklearn.datasets import make_classification
 import pickle
-#from nltk import sent_tokenize
+from nltk import sent_tokenize
+
 
 #model stuff
-#clf = pickle.load(open('clf', 'rb'))
+#clf = pickle.load(open('model', 'rb'))
 
 
 app = Flask(__name__)
+#api = Api(app)
 
 @app.route('/')
-def my_runs():
-    return render_template("index.html")
-
-@app.route('/api')
 def predict():
-    '''
     data = request.get_json(force=True)
     rawtext = data['text']
     theme = data['theme']
@@ -30,9 +30,7 @@ def predict():
             returned.append(prediction - theme)
         else:
             pass
-
     return jsonify(returned)
-    '''
-    return 'API Works'
+
 if __name__ == "__main__":
     app.run(port = 5001)
