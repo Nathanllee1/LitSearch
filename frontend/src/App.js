@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './index.css';
-import ReactDOM from 'react-dom';
 
 import Titles from "./title";
 import Editor from "./editor";
+import Card from "./cards";
 
 class App extends React.Component {
   render() {
     return (
-      <Titles />
-      <Editor />
+      <div id='header'>
+        <Titles />
+        <Editor />
+        <Card />
+      </div>
     );
   }
 }

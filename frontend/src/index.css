@@ -1,12 +1,13 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    height: 100vh
+    height: 100vh;
+    margin: 0px;
 }
 
 .header {
   display: flex;
   vertical-align: bottom;
-
+  height: 34px;
 }
 
 .title {
@@ -18,18 +19,22 @@ body {
     font-size: 15px;
     color: #787878;
     margin: 0px;
-
+    postition: absolute;
+    bottom: 0px;
 }
 
 .main-content {
     display: flex;
     width: 100%;
     height: calc(100vh - 100px);
-
 }
 
 #editor {
   margin-left: 20px;
+}
+
+.ql-toolbar {
+  display: none;
 }
 
 .ql-container {
@@ -42,6 +47,7 @@ body {
     flex-grow: 1;
     height: 100vh;
     line-height: 2.0em;
+    border: none;
 }
 
 .sidebar {

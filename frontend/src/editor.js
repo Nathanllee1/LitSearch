@@ -1,13 +1,24 @@
 import React from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
-var Delta = Quill.import('delta');
-var quill = new Quill('#editor', {theme: 'bubble'});
 
-const Editor = (props) =>{
-  return (
-    <div id="editor">
-        <p>Add the text to search through here</p>
-    </div>
-  )
+class Editor extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { text: 'd' } // You can also pass a Quill Delta here
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(value) {
+    this.setState({ text: value })
+  }
+
+  render() {
+    return (
+      <ReactQuill value={this.state.text}  />
+    )
+  }
 }
+
 export default Editor;
