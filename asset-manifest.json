@@ -1,13 +1,15 @@
 {
-  "main.css": "/Litsearch/static/css/main.af2da1c2.chunk.css",
-  "main.js": "/Litsearch/static/js/main.6c5ddef2.chunk.js",
-  "main.js.map": "/Litsearch/static/js/main.6c5ddef2.chunk.js.map",
-  "static/js/1.05e0dd46.chunk.js": "/Litsearch/static/js/1.05e0dd46.chunk.js",
-  "static/js/1.05e0dd46.chunk.js.map": "/Litsearch/static/js/1.05e0dd46.chunk.js.map",
+  "main.css": "/Litsearch/static/css/main.ecd71745.chunk.css",
+  "main.js": "/Litsearch/static/js/main.e7501f6f.chunk.js",
+  "main.js.map": "/Litsearch/static/js/main.e7501f6f.chunk.js.map",
+  "static/css/1.381b3e06.chunk.css": "/Litsearch/static/css/1.381b3e06.chunk.css",
+  "static/js/1.916ee2d9.chunk.js": "/Litsearch/static/js/1.916ee2d9.chunk.js",
+  "static/js/1.916ee2d9.chunk.js.map": "/Litsearch/static/js/1.916ee2d9.chunk.js.map",
   "runtime~main.js": "/Litsearch/static/js/runtime~main.10e28a27.js",
   "runtime~main.js.map": "/Litsearch/static/js/runtime~main.10e28a27.js.map",
-  "static/css/main.af2da1c2.chunk.css.map": "/Litsearch/static/css/main.af2da1c2.chunk.css.map",
+  "static/css/1.381b3e06.chunk.css.map": "/Litsearch/static/css/1.381b3e06.chunk.css.map",
+  "static/css/main.ecd71745.chunk.css.map": "/Litsearch/static/css/main.ecd71745.chunk.css.map",
   "index.html": "/Litsearch/index.html",
-  "precache-manifest.0a44f87b2510737863c86bf9c51cf847.js": "/Litsearch/precache-manifest.0a44f87b2510737863c86bf9c51cf847.js",
+  "precache-manifest.b71ab7f1c6bcb674ad0932863fd4ec56.js": "/Litsearch/precache-manifest.b71ab7f1c6bcb674ad0932863fd4ec56.js",
   "service-worker.js": "/Litsearch/service-worker.js"
 }
