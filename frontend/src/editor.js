@@ -6,7 +6,7 @@ import 'react-quill/dist/quill.snow.css';
 class Editor extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { text: 'd' } // You can also pass a Quill Delta here
+    this.state = { text: 'Insert text to search through here' } // You can also pass a Quill Delta here
     this.handleChange = this.handleChange.bind(this)
   }
 
