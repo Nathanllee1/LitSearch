@@ -4,14 +4,21 @@ import './index.css';
 import Titles from "./title";
 import Editor from "./editor";
 import Card from "./cards";
-
+import FilteredList from "./filteredList"
 class App extends React.Component {
   render() {
     return (
-      <div id='header'>
+
+      <div id='content'>
         <Titles />
-        <Editor />
-        <Card />
+        <div class='main-content'>
+          <Editor />
+          <div class='sidebar'>
+            <Card />
+          </div>
+
+        </div>
+
       </div>
     );
   }
