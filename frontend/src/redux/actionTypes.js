@@ -1,0 +1,2 @@
+export const UPDATE_LIT_TEXT = "UPDATE_LIT_TEXT";
+export const RECEIVE_QUOTES = "RECEIVE_QUOTES";
