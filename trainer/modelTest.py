@@ -26,10 +26,10 @@ def predict(data):
     theme = data['theme']
 
     sentences = sent_tokenize(rawtext) #returns list
-    vectorModel = vectorize(rawtext)
+    vectorModel = vectorize(theme + rawtext)
 
     returned = []
-    results = clf.predict(vectorModel + theme)
+    results = clf.predict(vectorModel)
     print(results)
     '''
     for sentence in sentences:

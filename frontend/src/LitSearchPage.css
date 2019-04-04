@@ -1,3 +1,14 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100%;
+    margin: 0px;
+}
+
+.header {
+  display: flex;
+  vertical-align: bottom;
+  height: 34px;
+}
 .lit-search-page {
 	display: flex;
 	justify-content: space-between;
@@ -5,4 +16,65 @@
 
 .left-container, .right-container {
 	width: 100%;
+}
+
+#editor {
+  margin-left: 20px;
+}
+
+.ql-toolbar {
+  display: none;
+}
+
+.quill {
+    padding: 30px;
+    font-size: 20px;
+    size: 100px;
+    /*width: 750px;*/
+    align-self: flex-start;
+    flex-grow: 1;
+    height: 100vh;
+    line-height: 2.0em;
+    border: none;
+}
+
+.ql-container, ql-snow {
+	font-size: 20px;
+}
+
+.header {
+  display: flex;
+  vertical-align: bottom;
+  height: 34px;
+}
+
+.title {
+    font-size: 30px;
+    margin: 0px;
+}
+
+.description {
+    font-size: 15px;
+    color: #787878;
+    margin: 0px;
+    postition: absolute;
+    bottom: 0px;
+}
+
+.left-container {
+	margin-left: 120px;
+	margin-right: 120px;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    /*padding-top: 42px;*/
+    float: right;
+    justify-content: flex-start;
+    width: 600px;
+    /*background-color: aqua;*/
+    align-items: center;
+    flex-align: end;
+    margin: 35px;
 }

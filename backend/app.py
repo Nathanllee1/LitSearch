@@ -13,24 +13,18 @@ from nltk import sent_tokenize
 #model stuff
 #clf = pickle.load(open('model', 'rb'))
 
-
+testdata = {
+    'theme': 'family',
+    'quotes': ['Blah Blah Blah', 'Lorem ipsum']
+}
 app = Flask(__name__)
 #api = Api(app)
 
 @app.route('/')
 def predict():
     data = request.get_json(force=True)
-    rawtext = data['text']
-    theme = data['theme']
-    sentences = sent_tokenize(rawtext)
-    returned = []
-    for sentence in sentences:
-        prediction = clf.predict(sentence + theme)
-        if prediction == true:
-            returned.append(prediction - theme)
-        else:
-            pass
-    return jsonify(returned)
+    print(data)
+    return testdata
 
 if __name__ == "__main__":
     app.run(port = 5001)

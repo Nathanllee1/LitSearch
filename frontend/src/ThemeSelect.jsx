@@ -12,13 +12,14 @@ class ThemeSelect extends React.Component {
         // TODO: get available themes from server
         // This is your homework! :)
         const THEMES = [
-            'Family',
-            'Romance',
-            'Spirituality',
-            'Death',
-            'Good vs. evil',
-            'Survival',
-            'Coming of age',
+          'family', 'identity', 'love', 'women', 'power', 'language', 'religion',
+     'death', 'justice', 'class', 'storytelling', 'nature', 'racism',
+     'education', 'survival', 'freedom', 'memory', 'coming of age',
+     'morality', 'war', 'fate', 'gender roles', 'growing up', 'time',
+     'isolation', 'guilt', 'christianity', 'friendship', 'marriage',
+     'community', 'tradition', 'home', 'appearances', 'heroism',
+     'fate and free will', 'america', 'work', 'redemption', 'perspective',
+     'resistance', 'corruption', 'duality', 'secrecy', 'art'
         ];
         return THEMES.map(theme => {
             // For each possible theme, we're creating an anonymous function which
