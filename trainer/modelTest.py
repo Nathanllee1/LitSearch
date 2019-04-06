@@ -2,21 +2,17 @@ from sklearn.datasets import make_classification
 import pickle
 import nltk
 from nltk import sent_tokenize
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-#nltk.download('punkt')
+nltk.download('punkt')
 
 clf = pickle.load(open('model', 'rb'))
 
 
 def vectorize(rawData):
-    vectorizer = TfidfVectorizer(
-        stop_words="english",
-        ngram_range=(1, 1),
-        max_df=1.0,
-        min_df=0.001
-    )
+    vectorizer = pickle.load(open('vectorizer', 'rb'))
     vectorizedData = vectorizer.fit_transform([rawData])
     return vectorizedData
 
