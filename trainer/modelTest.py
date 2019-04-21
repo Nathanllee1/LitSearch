@@ -9,11 +9,15 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 nltk.download('punkt')
 
 clf = pickle.load(open('model', 'rb'))
+vectorizer = pickle.load(open('vectorizer', 'rb'))
 
+modelSize = 3736
 
 def vectorize(rawData):
-    vectorizer = pickle.load(open('vectorizer', 'rb'))
+    #vectorizer = pickle.load(open('vectorizer', 'rb'))
+    vectorizer = TfidfVectorizer(min_df=3736)
     vectorizedData = vectorizer.fit_transform([rawData])
+    print(type(vectorizedData))
     return vectorizedData
 
 def predict(data):
@@ -23,7 +27,7 @@ def predict(data):
 
     sentences = sent_tokenize(rawtext) #returns list
     vectorModel = vectorize(theme + rawtext)
-
+    print(vectorModel)
     returned = []
     results = clf.predict(vectorModel)
     print(results)
