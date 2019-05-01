@@ -2,7 +2,7 @@ import React from 'react';
 import LeftContainer from "./LeftContainer";
 import RightContainer from "./RightContainer";
 
-import "./LitSearchPage.css";
+
 
 class LitSearchPage extends React.Component {
 

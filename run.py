@@ -29,7 +29,7 @@ app = Flask(__name__)
 def predict():
     data = request.get_json(force=True)
     print(data)
-    return testdata
+    return render_template("/templates/public/index.html")
 
 if __name__ == "__main__":
     app.run(port = 5001)
