@@ -14,9 +14,9 @@ vectorizer = pickle.load(open('vectorizer', 'rb'))
 modelSize = 3736
 
 def vectorize(rawData):
-    #vectorizer = pickle.load(open('vectorizer', 'rb'))
-    vectorizer = TfidfVectorizer(min_df=3736)
-    vectorizedData = vectorizer.fit_transform([rawData])
+    vectorizer = pickle.load(open('vectorizer', 'rb'))
+    #vectorizer = TfidfVectorizer(min_df=3736)
+    vectorizedData = vectorizer.transform([rawData])
     print(type(vectorizedData))
     return vectorizedData
 
