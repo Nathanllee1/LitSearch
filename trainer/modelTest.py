@@ -4,8 +4,6 @@ import nltk
 from nltk import sent_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-from sklearn.feature_extraction.text import TfidfVectorizer
-
 nltk.download('punkt')
 
 clf = pickle.load(open('model', 'rb'))
@@ -27,6 +25,7 @@ def predict(data):
 
     sentences = sent_tokenize(rawtext) #returns list
     vectorModel = vectorize(theme + rawtext)
+    
     print(vectorModel)
     returned = []
     results = clf.predict(vectorModel)

@@ -26,10 +26,15 @@ app = Flask(__name__)
 #api = Api(app)
 
 @app.route('/')
-def predict():
+def render():
+    return render_template("templates/static/index.html")
+
+@app.route('/api')
+def analyze():
     data = request.get_json(force=True)
     print(data)
-    return render_template("/templates/public/index.html")
+    return(testdata)
+
 
 if __name__ == "__main__":
     app.run(port = 5001)
